@@ -1,19 +1,18 @@
 //
-//  ViewController.swift
+//  SearchViewController.swift
 //  FastDeliv
 //
-//  Created by Achmad Rijalu on 03/09/24.
+//  Created by Achmad Rijalu on 21/01/25.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
 
-
 }
-
