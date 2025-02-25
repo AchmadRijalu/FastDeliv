@@ -29,7 +29,7 @@ class HomeViewController: UIViewController {
             button.layer.masksToBounds = true
             button.layer.borderWidth = 1.0
             button.layer.borderColor = UIColor.systemOrange.cgColor
-            button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 12, bottom: 8, right: 12)
+            button.contentEdgeInsets = UIEdgeInsets(top: 12, left: 12, bottom: 8, right: 12)
         }
         
         //For auto layout
@@ -47,11 +47,12 @@ class HomeViewController: UIViewController {
     }()
     
     private lazy var collectionView: UICollectionView = {
-        let layout:  UICollectionViewLayout = UICollectionViewLayout()
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         let collectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.register(RestaurantListCell.self, forCellWithReuseIdentifier: "RestaurantListCell")
         
         return collectionView
     }()
@@ -72,15 +73,12 @@ class HomeViewController: UIViewController {
         viewModel.onViewDidLoad()
         // Do any additional setup after loading the view.
     }
-
-
 }
 
 extension HomeViewController : HomeViewModelDelegate {
     func onSetupView() {
         view.backgroundColor = .white
         title = "Home"
-        
         view.addSubview(setLocationButton)
         view.addSubview(searchTextField)
         view.addSubview(collectionView)
@@ -90,16 +88,15 @@ extension HomeViewController : HomeViewModelDelegate {
             setLocationButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
             setLocationButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             setLocationButton.trailingAnchor.constraint(lessThanOrEqualToSystemSpacingAfter: view.trailingAnchor, multiplier: -16),
-            
             searchTextField.topAnchor.constraint(equalTo: setLocationButton.bottomAnchor, constant: 16.0),
             searchTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             searchTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            
-            collectionView.topAnchor.constraint(equalToSystemSpacingBelow: searchTextField.bottomAnchor, multiplier: 16),
+            collectionView.topAnchor.constraint(equalTo: searchTextField.bottomAnchor, constant: 16),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+        collectionView.reloadData()
     }
     
     
@@ -108,15 +105,20 @@ extension HomeViewController : HomeViewModelDelegate {
 extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //get number of item
-        return 0
+        return 20
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RestaurantListCell", for: indexPath) as? RestaurantListCell else {
+            return UICollectionViewCell()
+        }
+        let mockModel: RestaurantListCellModel = RestaurantListCellModel(restaurantImageURL: "", restaurantName: "Solaria", cuisinName: "Indonesian")
+        cell.setupData(cellModel: mockModel)
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .zero
+        return CGSize(width: UIScreen.main.bounds.width - 32, height: RestaurantListCell.getHeightCell())
     }
     
     

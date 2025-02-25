@@ -8,8 +8,6 @@
 import UIKit
 
 class HomeTabBarViewController: UITabBarController {
-
-    
     let viewModel: HomeTabBarViewModelProtocol
     
     init(viewModel: HomeTabBarViewModelProtocol) {
