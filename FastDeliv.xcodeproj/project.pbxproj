@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		77321B4C2C8C90D600130F27 /* HomeTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77321B4B2C8C90D600130F27 /* HomeTabBarViewController.swift */; };
+		773D8CF92D755CCE00CE8798 /* CuisineCarouselListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773D8CF82D755CCE00CE8798 /* CuisineCarouselListCell.swift */; };
+		773D8CFB2D75647800CE8798 /* CuisineListCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773D8CFA2D75646C00CE8798 /* CuisineListCellModel.swift */; };
 		7757C9562D3FCC4000DB994C /* HomeTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7757C9552D3FCC3000DB994C /* HomeTabBarViewModel.swift */; };
 		7757C9582D3FCF3000DB994C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7757C9572D3FCF3000DB994C /* SearchViewController.swift */; };
 		7757C95A2D3FCF6700DB994C /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7757C9592D3FCF6700DB994C /* CartViewController.swift */; };
@@ -26,6 +28,8 @@
 
 /* Begin PBXFileReference section */
 		77321B4B2C8C90D600130F27 /* HomeTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarViewController.swift; sourceTree = "<group>"; };
+		773D8CF82D755CCE00CE8798 /* CuisineCarouselListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisineCarouselListCell.swift; sourceTree = "<group>"; };
+		773D8CFA2D75646C00CE8798 /* CuisineListCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisineListCellModel.swift; sourceTree = "<group>"; };
 		7757C9552D3FCC3000DB994C /* HomeTabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarViewModel.swift; sourceTree = "<group>"; };
 		7757C9572D3FCF3000DB994C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		7757C9592D3FCF6700DB994C /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +148,7 @@
 		77E8492D2D6CA69600541842 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				773D8CFA2D75646C00CE8798 /* CuisineListCellModel.swift */,
 				77E8492E2D6CA6E500541842 /* RestaurantListCellModel.swift */,
 			);
 			path = Models;
@@ -162,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				77FB77722D5E312A00CA9365 /* RestaurantListCell.swift */,
+				773D8CF82D755CCE00CE8798 /* CuisineCarouselListCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -243,12 +249,14 @@
 				77D322862C86D88E009281E4 /* AppDelegate.swift in Sources */,
 				77D322882C86D88E009281E4 /* SceneDelegate.swift in Sources */,
 				7757C95A2D3FCF6700DB994C /* CartViewController.swift in Sources */,
+				773D8CFB2D75647800CE8798 /* CuisineListCellModel.swift in Sources */,
 				77E849322D6CA82C00541842 /* UIImageView+Extension.swift in Sources */,
 				77FB77732D5E313400CA9365 /* RestaurantListCell.swift in Sources */,
 				775E71142C881E92004E61D1 /* HomeViewModel.swift in Sources */,
 				77321B4C2C8C90D600130F27 /* HomeTabBarViewController.swift in Sources */,
 				7757C9562D3FCC4000DB994C /* HomeTabBarViewModel.swift in Sources */,
 				77E8492F2D6CA6E600541842 /* RestaurantListCellModel.swift in Sources */,
+				773D8CF92D755CCE00CE8798 /* CuisineCarouselListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

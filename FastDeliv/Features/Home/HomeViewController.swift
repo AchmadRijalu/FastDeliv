@@ -42,7 +42,6 @@ class HomeViewController: UIViewController {
         textField.placeholder = "Search.."
         textField.translatesAutoresizingMaskIntoConstraints = false
         
-        
         return textField
     }()
     
@@ -52,6 +51,7 @@ class HomeViewController: UIViewController {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.register(CuisineCarouselListCell.self, forCellWithReuseIdentifier: "CuisineCarousel")
         collectionView.register(RestaurantListCell.self, forCellWithReuseIdentifier: "RestaurantListCell")
         
         return collectionView
@@ -103,26 +103,50 @@ extension HomeViewController : HomeViewModelDelegate {
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
+        //Section 1 cuisine carousel
+        //Section 2 restaurant list
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //get number of item
-        return 20
+        if section == 0 {
+            return 1
+        }
+        else {
+            return 10
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RestaurantListCell", for: indexPath) as? RestaurantListCell else {
-            return UICollectionViewCell()
+        
+        if indexPath.section == 0 {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CuisineCarousel", for: indexPath) as? CuisineCarouselListCell else {
+                return UICollectionViewCell()
+            }
+            return cell
         }
-        let mockModel: RestaurantListCellModel = RestaurantListCellModel(restaurantImageURL: "", restaurantName: "Solaria", cuisinName: "Indonesian")
-        cell.setupData(cellModel: mockModel)
-        return cell
+        else{
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RestaurantListCell", for: indexPath) as? RestaurantListCell else {
+                return UICollectionViewCell()
+            }
+            let mockModel: RestaurantListCellModel = RestaurantListCellModel(restaurantImageURL: "", restaurantName: "Solaria", cuisinName: "Indonesian")
+            cell.setupData(cellModel: mockModel)
+            return cell
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width - 32, height: RestaurantListCell.getHeightCell())
+        if indexPath.section == 0 {
+            return CGSize(width: UIScreen.main.bounds.width, height: CuisineCarouselListCell.getHeight())
+        }
+        else {
+            return CGSize(width: UIScreen.main.bounds.width - 32, height: RestaurantListCell.getHeightCell())
+        }
+       
     }
     
     
 }
-
-
-
