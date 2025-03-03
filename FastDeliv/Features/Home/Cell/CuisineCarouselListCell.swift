@@ -38,7 +38,6 @@ class CuisineCarouselListCell: UICollectionViewCell {
 private extension CuisineCarouselListCell {
     func setupView() {
         contentView.addSubview(collectionView)
-        
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: contentView.topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
@@ -57,15 +56,16 @@ extension CuisineCarouselListCell: UICollectionViewDataSource, UICollectionViewD
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cuisine_list", for: indexPath) as? CuisineListCell else {
            return UICollectionViewCell()
         }
-        let mockData: CuisineListCellModel = CuisineListCellModel(cuisineImageUrl: "", cuisineName: "Indonesian")
+        let mockData: CuisineListCellModel = CuisineListCellModel(cuisineImageUrl: "", cuisineName: "Indonesian indonesian ")
         cell.setupCellData(cellModel: mockData)
         return cell
         
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 96, height: 128)
+        return CGSize(width: 80, height: 112)
     }
+    
 }
 
 class CuisineListCell: UICollectionViewCell {
@@ -83,7 +83,10 @@ class CuisineListCell: UICollectionViewCell {
     private lazy var cuisineLabel: UILabel = {
         let uiLabel: UILabel = UILabel(frame: .zero)
         uiLabel.translatesAutoresizingMaskIntoConstraints = false
-        uiLabel.font = UIFont.systemFont(ofSize: 16.0, weight: .semibold)
+        uiLabel.font = UIFont.systemFont(ofSize: 16.0, weight: .medium)
+        uiLabel.adjustsFontSizeToFitWidth = true
+        uiLabel.minimumScaleFactor = 0.5
+        uiLabel.numberOfLines = 0
         return uiLabel
     }()
     override init(frame: CGRect) {

@@ -140,7 +140,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.section == 0 {
-            return CGSize(width: UIScreen.main.bounds.width, height: CuisineCarouselListCell.getHeight())
+            return CGSize(width: UIScreen.main.bounds.width - 16, height: CuisineCarouselListCell.getHeight())
         }
         else {
             return CGSize(width: UIScreen.main.bounds.width - 32, height: RestaurantListCell.getHeightCell())
