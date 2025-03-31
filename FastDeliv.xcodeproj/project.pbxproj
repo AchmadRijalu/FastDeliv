@@ -21,6 +21,7 @@
 		77D3228D2C86D88E009281E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77D3228B2C86D88E009281E4 /* Main.storyboard */; };
 		77D3228F2C86D88F009281E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77D3228E2C86D88F009281E4 /* Assets.xcassets */; };
 		77D322922C86D88F009281E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77D322902C86D88F009281E4 /* LaunchScreen.storyboard */; };
+		77E180B72D87D025007129F2 /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E180B62D87D025007129F2 /* HomeHeaderView.swift */; };
 		77E8492F2D6CA6E600541842 /* RestaurantListCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E8492E2D6CA6E500541842 /* RestaurantListCellModel.swift */; };
 		77E849322D6CA82C00541842 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E849312D6CA82500541842 /* UIImageView+Extension.swift */; };
 		77FB77732D5E313400CA9365 /* RestaurantListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FB77722D5E312A00CA9365 /* RestaurantListCell.swift */; };
@@ -43,6 +44,7 @@
 		77D3228E2C86D88F009281E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		77D322912C86D88F009281E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		77D322932C86D88F009281E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77E180B62D87D025007129F2 /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
 		77E8492E2D6CA6E500541842 /* RestaurantListCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListCellModel.swift; sourceTree = "<group>"; };
 		77E849312D6CA82500541842 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		77FB77722D5E312A00CA9365 /* RestaurantListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListCell.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 			children = (
 				77FB77722D5E312A00CA9365 /* RestaurantListCell.swift */,
 				773D8CF82D755CCE00CE8798 /* CuisineCarouselListCell.swift */,
+				77E180B62D87D025007129F2 /* HomeHeaderView.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 				77D322862C86D88E009281E4 /* AppDelegate.swift in Sources */,
 				77D322882C86D88E009281E4 /* SceneDelegate.swift in Sources */,
 				7757C95A2D3FCF6700DB994C /* CartViewController.swift in Sources */,
+				77E180B72D87D025007129F2 /* HomeHeaderView.swift in Sources */,
 				773D8CFB2D75647800CE8798 /* CuisineListCellModel.swift in Sources */,
 				77E849322D6CA82C00541842 /* UIImageView+Extension.swift in Sources */,
 				77FB77732D5E313400CA9365 /* RestaurantListCell.swift in Sources */,
@@ -408,6 +412,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DYXBWDG6F4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FastDeliv/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -436,6 +441,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DYXBWDG6F4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FastDeliv/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

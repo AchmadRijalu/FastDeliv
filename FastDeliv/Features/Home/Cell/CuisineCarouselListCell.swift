@@ -56,7 +56,7 @@ extension CuisineCarouselListCell: UICollectionViewDataSource, UICollectionViewD
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cuisine_list", for: indexPath) as? CuisineListCell else {
            return UICollectionViewCell()
         }
-        let mockData: CuisineListCellModel = CuisineListCellModel(cuisineImageUrl: "", cuisineName: "Indonesian indonesian ")
+        let mockData: CuisineListCellModel = CuisineListCellModel(cuisineImageUrl: "", cuisineName: "Indonesian")
         cell.setupCellData(cellModel: mockData)
         return cell
         

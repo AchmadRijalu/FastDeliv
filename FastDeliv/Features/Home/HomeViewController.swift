@@ -53,6 +53,7 @@ class HomeViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.register(CuisineCarouselListCell.self, forCellWithReuseIdentifier: "CuisineCarousel")
         collectionView.register(RestaurantListCell.self, forCellWithReuseIdentifier: "RestaurantListCell")
+        collectionView.register(HomeHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "Header")
         
         return collectionView
     }()
@@ -146,6 +147,24 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
             return CGSize(width: UIScreen.main.bounds.width - 32, height: RestaurantListCell.getHeightCell())
         }
        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard let view = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "Header", for: indexPath)
+                as?  HomeHeaderView else {return UICollectionReusableView()}
+        
+        if indexPath.section == 0 {
+            view.setupTitle(title: "Cuisines")
+        }
+        else {
+            view.setupTitle(title: "Restaurants")
+        }
+        
+        return view
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: UIScreen.main.bounds.width, height:  HomeHeaderView.getHeight())
     }
     
     
