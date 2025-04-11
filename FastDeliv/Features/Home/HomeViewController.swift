@@ -47,6 +47,7 @@ class HomeViewController: UIViewController {
     
     private lazy var collectionView: UICollectionView = {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionHeadersPinToVisibleBounds = true
         let collectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.delegate = self
@@ -155,6 +156,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         
         if indexPath.section == 0 {
             view.setupTitle(title: "Cuisines")
+            
         }
         else {
             view.setupTitle(title: "Restaurants")

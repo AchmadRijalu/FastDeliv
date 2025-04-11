@@ -10,7 +10,7 @@ import UIKit
 class HomeHeaderView: UICollectionReusableView {
     private lazy var titlelabel: UILabel = {
         let label: UILabel = UILabel(frame: .zero)
-        label.font = UIFont.systemFont(ofSize: 24.0, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 32.0, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         return label
@@ -29,7 +29,7 @@ class HomeHeaderView: UICollectionReusableView {
     }
     
     static func getHeight() -> CGFloat {
-        return 56.0
+        return 64.0
     }
 }
 
@@ -42,5 +42,6 @@ private extension HomeHeaderView {
             titlelabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.0),
             titlelabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
         ])
+        backgroundColor = .white
     }
 }
