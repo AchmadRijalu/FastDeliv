@@ -21,6 +21,8 @@ class CuisineCarouselListCell: UICollectionViewCell {
         return collectionView
     }()
     
+    private var listCellModel: [CuisineListCellModel] = []
+    
     override init(frame: CGRect) {
         super.init(frame: .zero)
         setupView()
@@ -31,6 +33,11 @@ class CuisineCarouselListCell: UICollectionViewCell {
     
     static func getHeight() -> CGFloat {
         return 128.0
+    }
+    
+    func setupDataModel(cuisineListCellModel: [CuisineListCellModel]) {
+        listCellModel = cuisineListCellModel
+        collectionView.reloadData()
     }
     
 }
@@ -49,15 +56,16 @@ private extension CuisineCarouselListCell {
 
 extension CuisineCarouselListCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return listCellModel.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cuisine_list", for: indexPath) as? CuisineListCell else {
            return UICollectionViewCell()
         }
-        let mockData: CuisineListCellModel = CuisineListCellModel(cuisineImageUrl: "", cuisineName: "Indonesian")
-        cell.setupCellData(cellModel: mockData)
+//        let mockData: CuisineListCellModel = CuisineListCellModel(cuisineImageUrl: "", cuisineName: "Indonesian")
+        
+        cell.setupCellData(cellModel: listCellModel[indexPath.row])
         return cell
         
     }

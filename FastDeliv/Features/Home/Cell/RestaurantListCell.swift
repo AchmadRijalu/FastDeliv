@@ -12,6 +12,7 @@ class RestaurantListCell: UICollectionViewCell {
     private lazy var restaurantImageView: UIImageView =  {
         let imageView: UIImageView = UIImageView(frame: .zero)
         imageView.backgroundColor = .gray
+        imageView.contentMode = .scaleToFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()

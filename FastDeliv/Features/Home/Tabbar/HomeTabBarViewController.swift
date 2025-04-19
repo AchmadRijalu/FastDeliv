@@ -45,7 +45,8 @@ extension HomeTabBarViewController: HomeTabBarViewModelDelegate {
         //set the view controller to the tabbar
         homeViewController.tabBarItem = homeTabBar
         
-        let searchViewController: SearchViewController = SearchViewController(nibName: nil, bundle: nil)
+        let searchViewModel: SearchViewModel = SearchViewModel()
+        let searchViewController: SearchViewController = SearchViewController(viewModel: searchViewModel)
         searchViewController.tabBarItem = searchTabBar
         
         let cartViewController: CartViewController = CartViewController(nibName: nil, bundle: nil)

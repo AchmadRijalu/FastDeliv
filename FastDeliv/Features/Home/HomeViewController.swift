@@ -78,6 +78,7 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController : HomeViewModelDelegate {
+    
     func onSetupView() {
         view.backgroundColor = .white
         title = "Home"
@@ -101,12 +102,24 @@ extension HomeViewController : HomeViewModelDelegate {
         collectionView.reloadData()
     }
     
+    func reloadData() {
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+    }
+    
     
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
+        if viewModel.getCuisineList().isEmpty && viewModel.getRestaurantList().isEmpty {
+            return 0
+        }
+        if viewModel.getCuisineList().isEmpty || viewModel.getRestaurantList().isEmpty {
+            return 1
+        }
         return 2
         //Section 1 cuisine carousel
         //Section 2 restaurant list
@@ -115,10 +128,11 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //get number of item
         if section == 0 {
-            return 1
+            let numberSection = !viewModel.getCuisineList().isEmpty ? 1 : 0
+            return numberSection
         }
         else {
-            return 10
+            return viewModel.getRestaurantList().count
         }
     }
     
@@ -128,14 +142,16 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CuisineCarousel", for: indexPath) as? CuisineCarouselListCell else {
                 return UICollectionViewCell()
             }
+            cell.setupDataModel(cuisineListCellModel: viewModel.getCuisineList())
             return cell
         }
         else{
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RestaurantListCell", for: indexPath) as? RestaurantListCell else {
                 return UICollectionViewCell()
             }
-            let mockModel: RestaurantListCellModel = RestaurantListCellModel(restaurantImageURL: "", restaurantName: "Solaria", cuisinName: "Indonesian")
-            cell.setupData(cellModel: mockModel)
+            //            let mockModel: RestaurantListCellModel = RestaurantListCellModel(restaurantImageURL: "", restaurantName: "Solaria", cuisinName: "Indonesian")
+            
+            cell.setupData(cellModel: viewModel.getRestaurantList()[indexPath.row])
             return cell
         }
     }
@@ -147,7 +163,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         else {
             return CGSize(width: UIScreen.main.bounds.width - 32, height: RestaurantListCell.getHeightCell())
         }
-       
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -155,8 +171,13 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
                 as?  HomeHeaderView else {return UICollectionReusableView()}
         
         if indexPath.section == 0 {
-            view.setupTitle(title: "Cuisines")
-            
+            if viewModel.getCuisineList().isEmpty && !viewModel.getRestaurantList().isEmpty {
+                //Show restaurants section
+                view.setupTitle(title: "Restaurants")
+            }
+            else {
+                view.setupTitle(title: "Cuisines")
+            }
         }
         else {
             view.setupTitle(title: "Restaurants")
