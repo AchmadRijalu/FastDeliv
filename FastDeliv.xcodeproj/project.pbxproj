@@ -18,6 +18,7 @@
 		7775C40E2DAFC69400C6D628 /* RestaurantListFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7775C40D2DAFC67D00C6D628 /* RestaurantListFetcher.swift */; };
 		7775C4112DAFD25D00C6D628 /* RestaurantDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7775C4102DAFD25100C6D628 /* RestaurantDataModel.swift */; };
 		7775C4312DB2397200C6D628 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7775C4302DB2396C00C6D628 /* SearchViewModel.swift */; };
+		778300F12DB5FF60004EEF79 /* MyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778300F02DB5FF4D004EEF79 /* MyVC.swift */; };
 		77D322862C86D88E009281E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D322852C86D88E009281E4 /* AppDelegate.swift */; };
 		77D322882C86D88E009281E4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D322872C86D88E009281E4 /* SceneDelegate.swift */; };
 		77D3228A2C86D88E009281E4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D322892C86D88E009281E4 /* HomeViewController.swift */; };
@@ -42,6 +43,7 @@
 		7775C40D2DAFC67D00C6D628 /* RestaurantListFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListFetcher.swift; sourceTree = "<group>"; };
 		7775C4102DAFD25100C6D628 /* RestaurantDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDataModel.swift; sourceTree = "<group>"; };
 		7775C4302DB2396C00C6D628 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		778300F02DB5FF4D004EEF79 /* MyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyVC.swift; sourceTree = "<group>"; };
 		77D322822C86D88E009281E4 /* FastDeliv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FastDeliv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77D322852C86D88E009281E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77D322872C86D88E009281E4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 		77D322842C86D88E009281E4 /* FastDeliv */ = {
 			isa = PBXGroup;
 			children = (
+				778300F02DB5FF4D004EEF79 /* MyVC.swift */,
 				7775C40C2DAFC66B00C6D628 /* Network */,
 				77E849302D6CA7DA00541842 /* Helpers */,
 				7757C9AF2D4201E500DB994C /* Features */,
@@ -288,6 +291,7 @@
 				7775C40E2DAFC69400C6D628 /* RestaurantListFetcher.swift in Sources */,
 				7757C9562D3FCC4000DB994C /* HomeTabBarViewModel.swift in Sources */,
 				77E8492F2D6CA6E600541842 /* RestaurantListCellModel.swift in Sources */,
+				778300F12DB5FF60004EEF79 /* MyVC.swift in Sources */,
 				773D8CF92D755CCE00CE8798 /* CuisineCarouselListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
